@@ -10,7 +10,7 @@ import Router from './Router';
 class App extends Component {
   componentWillMount() {
     const config = {
-      apiKey: 'AIzaSyA0ygttA8D-Auj-ubEecjvM_fXanE1wjJM',
+      apiKey: 'API_KEY',
       authDomain: 'reactmanager-66f3c.firebaseapp.com',
       databaseURL: 'https://reactmanager-66f3c.firebaseio.com',
       projectId: 'reactmanager-66f3c',

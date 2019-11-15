@@ -4,6 +4,7 @@ import {
   EMPLOYEE_CREATE,
   EMPLOYEE_FETCH_SUCCESS,
   EMPLOYEE_SAVE_SUCCESS,
+  EMPLOYEE_DELETE,
 } from './Types';
 import {Actions} from 'react-native-router-flux';
 
@@ -50,6 +51,20 @@ export const employeeSave = ({name, phone, shift, uid}) => {
       .set({name, phone, shift})
       .then(() => {
         dispatch({type: EMPLOYEE_SAVE_SUCCESS});
+        Actions.employeeList({type: 'reset'});
+      });
+  };
+};
+
+export const employeeDelete = ({uid}) => {
+  const {currentUser} = firebase.auth();
+  console.log(`UID >> ${uid}`);
+  return () => {
+    firebase
+      .database()
+      .ref(`/users/${currentUser.uid}/employees/${uid}`)
+      .remove()
+      .then(() => {
         Actions.employeeList({type: 'reset'});
       });
   };
