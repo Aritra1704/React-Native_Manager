@@ -4,7 +4,6 @@ import {
   EMPLOYEE_CREATE,
   EMPLOYEE_FETCH_SUCCESS,
   EMPLOYEE_SAVE_SUCCESS,
-  EMPLOYEE_DELETE,
 } from './Types';
 import {Actions} from 'react-native-router-flux';
 
